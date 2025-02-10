@@ -31,16 +31,18 @@ export const App = () => {
 
     if (contactWithSameName && contactWithSameNumber) {
       Notiflix.Notify.failure(
-        `Контакт з ім'ям ${name} та з номером ${number} вже існує!`
+        `The contact ${name} and the number ${number} is already added!`
       );
     } else if (contactWithSameName) {
-      Notiflix.Notify.failure(`Контакт з ім'ям ${name} вже існує!`);
+      Notiflix.Notify.failure(`The contact ${name} is already existing!`);
     } else if (contactWithSameNumber) {
-      Notiflix.Notify.failure(`Контакт з номером ${number} вже існує!`);
+      Notiflix.Notify.failure(
+        `The contact with the number ${number} is already existing!`
+      );
     } else {
       const newContact = { id: nanoid(), name, number };
       setContacts(prevState => [...prevState, newContact]);
-      Notiflix.Notify.success(`Контакт ${name} успішно додано!`);
+      Notiflix.Notify.success(`Contact ${name} was succesfully added!`);
     }
   };
 
